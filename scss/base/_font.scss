@@ -1,1 +1,11 @@
 @use "../util" as *;
+
+// Set the padding and margin on the * element.
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  position: relative;
+}
