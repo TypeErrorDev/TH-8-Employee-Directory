@@ -1,1 +1,16 @@
 @use "variables" as *;
+
+@mixin header-logo {
+  display: flex;
+  align-items: center;
+  background-color: #778;
+  height: 3rem;
+  text-align: center;
+  font-size: medium;
+  font-family: $font_family_primary;
+  text-transform: uppercase;
+}
+
+@mixin outline {
+  outline: 1px solid #03045e;
+}

@@ -1,10 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100;12..72,300;12..72,500;12..72,800&display=swap");
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
+  width: 98%;
+  background-color: #778;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1.5em;
+  width: 98%;
+  height: 1000px;
 }
 
 .overlay {
@@ -32,10 +48,27 @@ body {
   right: 15px;
   top: 5px;
   cursor: pointer;
+  background-color: #fff;
 }
 
 .hidden {
   display: none;
+}
+
+header h1 {
+  display: flex;
+  align-items: center;
+  background-color: #778;
+  height: 3rem;
+  text-align: center;
+  font-size: medium;
+  font-family: "Truculenta", sans-serif;
+  text-transform: uppercase;
+}
+
+.text-container {
+  height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */

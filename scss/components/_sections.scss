@@ -1,5 +1,15 @@
 @use "../util" as *;
 
+.grid-container {
+  // @include outline;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1.5em;
+  width: 98%;
+  height: 1000px;
+}
+
 // MODAL STYLES
 .overlay {
   position: absolute;
@@ -26,8 +36,22 @@
   right: 15px;
   top: 5px;
   cursor: pointer;
+  background-color: #fff;
 }
 
 .hidden {
   display: none;
+}
+
+//HEADER STYLES
+header h1 {
+  @include header-logo;
+}
+
+// CARD STYLES
+.card {
+}
+.text-container {
+  height: 100%;
+  width: 100%;
 }

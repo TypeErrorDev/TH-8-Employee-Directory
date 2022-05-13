@@ -1,0 +1,19 @@
+@use "../util" as *;
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100;12..72,300;12..72,500;12..72,800&display=swap");
+
+// Set the padding and margin on the * element.
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 98%;
+  background-color: #778;
+}
