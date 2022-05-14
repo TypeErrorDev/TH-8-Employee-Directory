@@ -7,6 +7,9 @@ let overlay = document.querySelector(".overlay");
 let modalContainer = document.querySelector(".modal-container");
 let modalClose = document.querySelector(".modal-close");
 
+// LIGHTBOX DECLARATION
+require("fslightbox.js");
+
 // FETCH FUNCTION TO GRAB API DATA
 fetch(urlAPI)
   .then((res) => res.json())
@@ -90,5 +93,3 @@ gridContainer.addEventListener("click", (e) => {
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
-
-// **************** THIS IS WHERE THE CODE CHANGES **************** \\
