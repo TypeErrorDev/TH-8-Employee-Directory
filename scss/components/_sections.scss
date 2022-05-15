@@ -1,54 +1,79 @@
 @use "../util" as *;
 
-.grid-container {
-  // @include outline;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 1.5em;
-  width: 98%;
-  height: 1000px;
+// SEARCH BAR STYLES
+.search {
+  display: flex;
+  flex-direction: column;
 }
-
-// MODAL STYLES
-.overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(100, 100, 100, 0.4);
+#search {
+  width: 300px;
+  height: 40px;
+  border: 2px solid rgb(208, 205, 205);
+  border-radius: 4px;
+  padding-left: 5px;
+  margin: 10px;
 }
-
-.modal-container {
-  width: 375px;
-  margin: 15% auto auto;
-  position: relative;
-  text-align: center;
-  background: #fff;
-  border: 1px solid #778;
-  border-radius: 5px;
-  padding: 30px 20px;
+#search:focus,
+#search:hover {
+  background-color: #03045e;
+  color: #fff;
+  outline: 4px double #80d39b;
 }
-
-.modal-close {
-  position: absolute;
-  right: 15px;
-  top: 5px;
-  cursor: pointer;
-  background-color: #fff;
-}
-
-.hidden {
-  display: none;
+#search-filter {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  @include main-font;
 }
 
 //HEADER STYLES
 header h1 {
-  @include header-logo;
+  @include main-font;
+  margin: 10px 0 0 0;
 }
 
 .text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding-left: 10px;
   height: 100%;
   width: 100%;
+  & h2 {
+    margin-top: 15px;
+  }
+}
+
+// MODAL STYLES
+.card {
+  font-size: 0.8rem;
+  text-align: center;
+  @include flex-row;
+  @include outline;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 100px;
+  width: 300px;
+  margin-bottom: 10px;
+  filter: grayscale(100%);
+  &:hover {
+    filter: grayscale(0%);
+    background-color: #03045e;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 4px 3px 2px #8b8a8f;
+    outline: 3px solid #80d39b;
+  }
+  & .avatar {
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 38%;
+    &:hover {
+      outline: 3px double #80d39b;
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }

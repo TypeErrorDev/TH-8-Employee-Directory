@@ -1,16 +1,21 @@
 @use "variables" as *;
 
-@mixin header-logo {
+@mixin main-font {
   display: flex;
   align-items: center;
-  background-color: #778;
-  height: 3rem;
+  height: 1.5rem;
   text-align: center;
-  font-size: medium;
+  font-size: 16px;
   font-family: $font_family_primary;
   text-transform: uppercase;
 }
 
 @mixin outline {
   outline: 1px solid #03045e;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

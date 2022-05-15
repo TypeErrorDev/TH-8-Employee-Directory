@@ -15,15 +15,28 @@
   <body>
     <!-- HEADER ELEMENT -->
     <header>
-      <h1>  &MediumSpace; <&MediumSpace;/> TypeErrorDev's Employee's Of The Month</h1>
+      <h1>
+        &MediumSpace; <&MediumSpace;/> TypeErrorDev's Employee's Of The Month
+      </h1>
+
+      <!-- search bar -->
+      <nav class="search">
+        <label for="search" id="search-filter">Filter List</label>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Filter Displayed Users"
+        />
+      </nav>
     </header>
 
     <!-- MAIN ELEMENT -->
-    <main class="grid-container">
+    <main class="flex-container">
       <!-- EMPLOYEE CARDS -->
       <!-- ADD JS INFORMATION HERE -->
 
-      <div class="card">
+      <!-- <div class="card">
         <img
           src="https://randomuser.me/api/portraits/men/67.jpg"
           alt="Portrait #67"
@@ -166,13 +179,13 @@
           <p class="email">creid@aol.com</p>
           <p class="address">Chicago</p>
         </div>
-      </div>
+      </div> -->
 
       <!-- EMPLOYEE MODAL -->
       <div class="overlay hidden">
         <div class="modal">
           <button class="modal-close">X</button>
-          <div class="mobal-content">
+          <div class="modal-content">
             <!-- ADD JS INFORMATION HERE -->
             <!-- <h2 class="name">Chad Reid</h2>
             <p class="email">creid@aol.com</p>
@@ -180,8 +193,8 @@
             <hr />
             <p class="phone">(593) 364-3249</p>
             <p class="address">123 South St, IL 83814</p>
-            <p class="birthdate">Birthday: 01/04/85</p>
-          </div> -->
+            <p class="birthdate">Birthday: 01/04/85</p> -->
+          </div>
         </div>
       </div>
     </main>

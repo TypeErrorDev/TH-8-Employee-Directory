@@ -2,13 +2,10 @@
 
 let employees = [];
 let urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
-let gridContainer = document.querySelector(".grid-container");
+let flexContainer = document.querySelector(".flex-container");
 let overlay = document.querySelector(".overlay");
-let modalContainer = document.querySelector(".modal-container");
+let modalContainer = document.querySelector(".modal-content");
 let modalClose = document.querySelector(".modal-close");
-
-// LIGHTBOX DECLARATION
-require("fslightbox.js");
 
 // FETCH FUNCTION TO GRAB API DATA
 fetch(urlAPI)
@@ -28,21 +25,22 @@ function displayEmployees(employeeData) {
     let name = employee.name;
     let email = employee.email;
     let city = employee.location.city;
+    let state = employee.location.state;
     let picture = employee.picture;
 
     // CREATE HTML
     employeeHTML += `
         <div class="card" data-index="${index}">
-            <img class="avatar" src="${picture.large}"/>
+            <img class="avatar" src="${picture.large}" alt="${name.first} ${name.last}"/>
             <div class="text-container">
                 <h2 class="name">${name.first} ${name.last}</h2>
                 <p class="email">${email}</p>
-                <p class="city">${city}</p>
+                <p class="city">${city}, ${state}</p>
             </div>
         </div>
         `;
   });
-  gridContainer.innerHTML = employeeHTML;
+  flexContainer.innerHTML = employeeHTML;
 }
 
 // FUNCTION TO DISPLAY MODAL
@@ -79,10 +77,10 @@ function displayModal(index) {
 }
 
 // EVENTLISTENER FOR THE GRID
-gridContainer.addEventListener("click", (e) => {
-  // IF THE CLICKED ELEMENT IS A CARD
-  if (e.target !== gridContainer) {
-    // SELECT THE CARD ELEMENT
+flexContainer.addEventListener("click", (e) => {
+  // MAKE SURE THE CLICK IS NOT ON THE flexContainer ITSELF
+  if (e.target !== flexContainer) {
+    // SELECT THE CARD ELEMENT BASED ON THE PROXIMITY TO THE ACTUAL ELEMENT CLICKED
     const card = e.target.closest(".card");
     const index = card.getAttribute("data-index");
     displayModal(index);
@@ -93,3 +91,20 @@ gridContainer.addEventListener("click", (e) => {
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
+
+// FILTER THE RESULTS
+function handleFilter(e) {
+  const currentValue = e.target.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  for (const card of cards) {
+    card.classList.toggle(
+      "hidden",
+      !card.innerText.toLowerCase().includes(currentValue)
+    );
+    console.log(card.innerText.toLowerCase().includes(currentValue));
+  }
+  console.log(currentValue);
+}
+const searchElement = document.querySelector(".search");
+searchElement.addEventListener("input", handleFilter);
