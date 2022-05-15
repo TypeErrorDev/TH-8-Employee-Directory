@@ -102,7 +102,6 @@ function handleFilter(e) {
       "hidden",
       !card.innerText.toLowerCase().includes(currentValue)
     );
-    console.log(card.innerText.toLowerCase().includes(currentValue));
   }
   console.log(currentValue);
 }

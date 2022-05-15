@@ -14,19 +14,19 @@ Awesome Startup is a distributed company with employees working all over the wor
 
 API Usage
     Meets Expectations:
-        ☐ Use fetch to request 12 random users from the API @started(22-05-15 14:16)
-        ☐ New random employee information displays each time the page refreshes @started(22-05-15 14:16)
+        ✔ Use fetch to request 12 random users from the API @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m26s)
+        ✔ New random employee information displays each time the page refreshes @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m29s)
     
 User Directory
     Meets Expectations:
-        ☐ The directory includes the following: @started(22-05-15 14:16)
-            ☐ Employee Image @started(22-05-15 14:16)
-            ☐ First and Last Name @started(22-05-15 14:16)
-            ☐ Email @started(22-05-15 14:16)
-            ☐ City @started(22-05-15 14:16)
+        ✔ The directory includes the following: @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m39s)
+            ✔ Employee Image @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m39s)
+            ✔ First and Last Name @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m39s)
+            ✔ Email @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m39s)
+            ✔ City @started(22-05-15 14:16) @done(22-05-16 00:08) @lasted(9h52m39s)
     
     Exceeds Expectations:
-        ☐ Employees can be filtered by name (USE PROJECT 5 SEARCH BAR) @started(22-05-15 14:16)
+        ✔ Employees can be filtered by name (USE PROJECT 5 SEARCH BAR) @started(22-05-15 14:16) @done(22-05-16 00:07) @lasted(9h51m48s)
 
 Modal Window
     Meets Expectations:
@@ -48,3 +48,4 @@ Matching the Mockups
 
 
 Use async/await to fetch data from the Random User Generator API
+Archive:
