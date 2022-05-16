@@ -103,7 +103,7 @@ function handleFilter(e) {
       !card.innerText.toLowerCase().includes(currentValue)
     );
   }
-  console.log(currentValue);
+  // console.log(currentValue);
 }
 const searchElement = document.querySelector(".search");
 searchElement.addEventListener("input", handleFilter);
