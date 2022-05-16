@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100;12..72,300;12..72,500;12..72,800&display=swap");
+:root {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -96,10 +103,44 @@ header h1 {
 .card .avatar {
   margin-left: 10px;
   border-radius: 50%;
-  width: 38%;
+  width: 30%;
 }
 .card .avatar:hover {
   outline: 3px double #80d39b;
+}
+
+.overlay {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  margin-top: 120px;
+  z-index: 100;
+  background-color: #fff;
+  border-radius: 10px;
+  outline: 3px solid black;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: none;
+  align-self: end;
+}
+.modal-close:hover {
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.modal-content img {
+  border-radius: 50%;
+  width: 30%;
 }
 
 .hidden {

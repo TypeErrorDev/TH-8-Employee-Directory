@@ -50,7 +50,7 @@ header h1 {
   text-align: center;
   @include flex-row;
   @include outline;
-  background-color: #fff;
+  background-color: $card-color;
   border-radius: 5px;
   height: 100px;
   width: 300px;
@@ -67,11 +67,43 @@ header h1 {
   & .avatar {
     margin-left: 10px;
     border-radius: 50%;
-    width: 38%;
+    width: 30%;
     &:hover {
       outline: 3px double #80d39b;
     }
   }
+}
+
+// MODAL CONTAINER STYLES
+.overlay {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  margin-top: 120px;
+  z-index: 100;
+  background-color: $card-color;
+  border-radius: 10px;
+  outline: 3px solid black;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+.modal-close {
+  background-color: transparent;
+  border: none;
+  align-self: end;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.2;
+  }
+}
+.modal-content img {
+  border-radius: 50%;
+  width: 30%;
 }
 
 .hidden {

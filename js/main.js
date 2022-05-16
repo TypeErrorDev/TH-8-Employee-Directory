@@ -1,8 +1,9 @@
-// VARIABLE DECLARATION
-
+//API VARIABLE DECLARATION
 let employees = [];
 let urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
 let flexContainer = document.querySelector(".flex-container");
+
+// MODAL VARIABLE DECLARATION
 let overlay = document.querySelector(".overlay");
 let modalContainer = document.querySelector(".modal-content");
 let modalClose = document.querySelector(".modal-close");
@@ -85,11 +86,13 @@ flexContainer.addEventListener("click", (e) => {
     const index = card.getAttribute("data-index");
     displayModal(index);
   }
+  console.log("clicked");
 });
 
 // EVENTLISTENER FOR THE MODAL CLOSE
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
+  console.log("CLOSED");
 });
 
 // FILTER THE RESULTS
