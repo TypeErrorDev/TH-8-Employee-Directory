@@ -107,3 +107,4 @@ function handleFilter(e) {
 }
 const searchElement = document.querySelector(".search");
 searchElement.addEventListener("input", handleFilter);
+// END OF FILE
