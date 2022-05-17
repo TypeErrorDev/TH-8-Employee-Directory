@@ -2,6 +2,7 @@
 let employees = [];
 let urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
 let flexContainer = document.querySelector(".flex-container");
+let cardID;
 
 // MODAL VARIABLE DECLARATION
 let overlay = document.querySelector(".overlay");
@@ -31,7 +32,7 @@ function displayEmployees(employeeData) {
 
     // CREATE HTML
     employeeHTML += `
-        <div class="card" data-index="${index}">
+        <div class="card" id="cardID" data-index="${index}">
             <img class="avatar" src="${picture.large}" alt="${name.first} ${name.last}"/>
             <div class="text-container">
                 <h2 class="name">${name.first} ${name.last}</h2>
@@ -42,6 +43,12 @@ function displayEmployees(employeeData) {
         `;
   });
   flexContainer.innerHTML = employeeHTML;
+  let cards = document.querySelectorAll(".card");
+  for (let i = 0; i < employees.length; i++) {
+    cards[i].addEventListener("click", (e) => {
+      displayModal(i);
+    });
+  }
 }
 
 // FUNCTION TO DISPLAY MODAL
@@ -52,7 +59,7 @@ function displayModal(index) {
     dob,
     phone,
     email,
-    location: { city, street, state, postcode },
+    location: { city, state, postcode },
     picture,
   } = employees[index];
 
@@ -68,23 +75,25 @@ function displayModal(index) {
         <p class="address">${city}</p>
         <hr />
         <p>${phone}</p>
-        <p class="address">${street}, ${state}, ${postcode}</p>
+        <p class="address">123 South Street, ${state}, ${postcode}</p>
         <p>Birtday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
   `;
   // REMOVE THE HIDDEN CLASS AND ASSIGN THE HTML TO THE MODAL
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
+  cardID = index;
 }
 
-// EVENTLISTENER FOR THE GRID
+// EVENTLISTENER FOR THE CARD
 flexContainer.addEventListener("click", (e) => {
   // MAKE SURE THE CLICK IS NOT ON THE flexContainer ITSELF
   if (e.target !== flexContainer) {
     // SELECT THE CARD ELEMENT BASED ON THE PROXIMITY TO THE ACTUAL ELEMENT CLICKED
     const card = e.target.closest(".card");
     const index = card.getAttribute("data-index");
-    displayModal(index);
+    displayModal(parseInt(index));
+    console.log(e.target);
   }
 });
 
@@ -109,3 +118,31 @@ const searchElement = document.querySelector(".search");
 searchElement.addEventListener("input", handleFilter);
 
 // PAGINATE THE OVERLAY
+const modalbtns = overlay.querySelectorAll(".modal-btn");
+
+modalbtns.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    if (e.target.classList.contains("next")) {
+      console.log("this is next");
+      console.log(cardID);
+      if (cardID === employees.length - 1) {
+        //SPECIAL CASE FOR LAST CARD IN THE INDEX
+        cardID = 0;
+        displayModal(cardID);
+      } else {
+        //NORMAL CASE FOR ALL OTHER CARDS
+        displayModal(cardID + 1);
+      }
+    } else {
+      console.log("this is prev");
+      if (cardID == 0) {
+        // SPECIAL CASE FOR FIRST CARD IN THE INDEX
+        cardID = 11;
+        displayModal(cardID);
+      } else {
+        //NORMAL CASE FOR ALL OTHER CARDS
+        displayModal(cardID - 1);
+      }
+    }
+  })
+);

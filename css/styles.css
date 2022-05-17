@@ -111,15 +111,16 @@ header h1 {
 
 .overlay {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   position: absolute;
   height: 300px;
-  width: 350px;
+  width: 300px;
   margin-top: 120px;
   z-index: 100;
   background-color: #fff;
   border-radius: 10px;
+  outline: 3px solid black;
 }
 
 .modal {
