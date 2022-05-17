@@ -119,28 +119,24 @@ searchElement.addEventListener("input", handleFilter);
 
 // PAGINATE THE OVERLAY
 const modalbtns = overlay.querySelectorAll(".modal-btn");
-
 modalbtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     if (e.target.classList.contains("next")) {
-      console.log("this is next");
-      console.log(cardID);
       if (cardID === employees.length - 1) {
-        //SPECIAL CASE FOR LAST CARD IN THE INDEX
+        // IF THE CARD ID IS THE LAST INDEX, RESET THE CARD ID TO 0
         cardID = 0;
         displayModal(cardID);
       } else {
-        //NORMAL CASE FOR ALL OTHER CARDS
+        // IF THE CARD ID IS NOT THE LAST INDEX, INCREMENT THE CARD ID
         displayModal(cardID + 1);
       }
     } else {
-      console.log("this is prev");
       if (cardID == 0) {
-        // SPECIAL CASE FOR FIRST CARD IN THE INDEX
+        // IF THE CARD ID IS 0, SET THE CARD ID TO THE LAST INDEX
         cardID = 11;
         displayModal(cardID);
       } else {
-        //NORMAL CASE FOR ALL OTHER CARDS
+        // IF THE CARD ID IS NOT 0, DECREMENT THE CARD ID
         displayModal(cardID - 1);
       }
     }

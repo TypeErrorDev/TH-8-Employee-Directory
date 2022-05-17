@@ -109,6 +109,10 @@ header h1 {
     align-items: center;
   }
 }
+.previous,
+.next {
+  cursor: pointer;
+}
 
 .hidden {
   display: none;
