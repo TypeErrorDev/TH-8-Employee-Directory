@@ -115,7 +115,7 @@ header h1 {
   align-items: center;
   position: absolute;
   height: 300px;
-  width: 300px;
+  width: 350px;
   margin-top: 120px;
   z-index: 100;
   background-color: #fff;
@@ -140,6 +140,7 @@ header h1 {
 .modal-content img {
   border-radius: 50%;
   width: 30%;
+  align-items: center;
 }
 
 .hidden {
