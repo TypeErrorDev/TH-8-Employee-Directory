@@ -86,13 +86,11 @@ flexContainer.addEventListener("click", (e) => {
     const index = card.getAttribute("data-index");
     displayModal(index);
   }
-  console.log("clicked");
 });
 
 // EVENTLISTENER FOR THE MODAL CLOSE
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
-  console.log("CLOSED");
 });
 
 // FILTER THE RESULTS
@@ -106,8 +104,8 @@ function handleFilter(e) {
       !card.innerText.toLowerCase().includes(currentValue)
     );
   }
-  // console.log(currentValue);
 }
 const searchElement = document.querySelector(".search");
 searchElement.addEventListener("input", handleFilter);
-// END OF FILE
+
+// PAGINATE THE OVERLAY
