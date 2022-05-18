@@ -93,7 +93,6 @@ flexContainer.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
     const index = card.getAttribute("data-index");
     displayModal(parseInt(index));
-    console.log(e.target);
   }
 });
 
