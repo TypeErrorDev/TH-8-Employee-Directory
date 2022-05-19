@@ -8,7 +8,7 @@
 #search {
   width: 300px;
   height: 40px;
-  border: 2px solid rgb(208, 205, 205);
+  border: none;
   border-radius: 4px;
   padding-left: 5px;
   margin: 10px;
@@ -17,7 +17,8 @@
 #search:hover {
   background-color: #03045e;
   color: #fff;
-  outline: 4px double #80d39b;
+  border: none;
+  transition: all 0.3s ease-in-out;
 }
 #search-filter {
   width: 100%;
@@ -48,8 +49,8 @@ header h1 {
 .card {
   font-size: 0.8rem;
   text-align: center;
+  border: none;
   @include flex-row;
-  @include outline;
   background-color: $card-color;
   border-radius: 5px;
   height: 100px;
@@ -62,7 +63,9 @@ header h1 {
     color: #fff;
     cursor: pointer;
     box-shadow: 4px 3px 2px #8b8a8f;
-    outline: 3px solid #80d39b;
+    border: none;
+    animation: shake 1.4s;
+    animation-iteration-count: infinite;
   }
   & .avatar {
     margin-left: 10px;
@@ -86,7 +89,7 @@ header h1 {
   z-index: 100;
   background-color: $card-color;
   border-radius: 10px;
-  outline: 3px solid black;
+  // outline: 3px solid black;
 }
 .modal {
   display: flex;
@@ -103,18 +106,28 @@ header h1 {
   }
 }
 .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   & img {
-    border-radius: 50%;
-    width: 30%;
+    border-radius: 15%;
+    width: 50%;
     align-items: center;
   }
 }
-
 .previous,
 .next {
-  cursor: pointer;
+  cursor: crosshair;
+  & img {
+    width: 80%;
+    align-items: center;
+  }
 }
-
+.next {
+  margin-left: 10px;
+}
 .hidden {
   display: none;
 }
+
+// FROSTED ICE STYLES

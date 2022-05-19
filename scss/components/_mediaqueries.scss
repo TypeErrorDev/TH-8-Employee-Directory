@@ -1,11 +1,22 @@
 @use "../util" as *;
 
-// TABLET MEDIA QUERY
-@media screen and (min-width: 768px) {
-  // ...
-}
+// BREAKPOINT MIXINS
 
-// DESKTOP MEDIA QUERY
-@media screen and (min-width: 1024px) {
-  // ...
+$break-tablet: 750px;
+$break-desktop: 1319px;
+
+@mixin breakpoint($break) {
+  @if $break == "medium" {
+    @media (min-width: $break-tablet) {
+      @content;
+    }
+  } @else if $break == "large" {
+    @media (min-width: $break-desktop) {
+      @content;
+    }
+  } @else {
+    @media ($break) {
+      @content;
+    }
+  }
 }
