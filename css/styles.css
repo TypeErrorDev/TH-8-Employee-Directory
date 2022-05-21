@@ -67,16 +67,13 @@ header h1 {
   margin: 10px 0 0 0;
 }
 
-.text-container {
+.flex-container {
   display: flex;
-  flex-direction: column;
-  text-align: start;
-  padding-left: 10px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   height: 100%;
-  width: 100%;
-}
-.text-container h2 {
-  margin-top: 15px;
+  width: 300px;
 }
 
 .card {
@@ -101,7 +98,7 @@ header h1 {
   box-shadow: 4px 3px 2px #8b8a8f;
   border: none;
   animation: shake 1.4s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 4;
 }
 .card .avatar {
   margin-left: 10px;
@@ -112,28 +109,56 @@ header h1 {
   outline: 3px double #80d39b;
 }
 
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding-left: 10px;
+  height: 100%;
+  width: 100%;
+}
+.text-container h2 {
+  margin-top: 15px;
+}
+
 .overlay {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  height: 300px;
-  width: 300px;
-  margin-top: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 100;
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .modal {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  height: 370px;
+  width: 300px;
+  border-radius: 10px;
+  padding: 0 10px;
+  box-shadow: 5px 5px 7px rgb(100, 99, 99);
 }
 
 .modal-close {
   background-color: transparent;
   border: none;
   align-self: end;
+  margin-right: 20px;
+  font-size: large;
 }
 .modal-close:hover {
   cursor: pointer;
@@ -144,16 +169,19 @@ header h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  line-height: 1.5;
 }
 .modal-content img {
   border-radius: 15%;
-  width: 50%;
+  border: 1px solid #000;
+  width: 60%;
   align-items: center;
+  box-shadow: 7px 7px 8px rgb(100, 99, 99);
 }
 
 .previous,
 .next {
-  cursor: crosshair;
+  cursor: pointer;
 }
 .previous img,
 .next img {
@@ -165,6 +193,39 @@ header h1 {
   margin-left: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .flex-container {
+    width: 650px;
+    justify-content: space-around;
+  }
+
+  .modal,
+.next,
+.previous {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .flex-container {
+    width: 1000px;
+    justify-content: space-around;
+  }
+
+  .modal,
+.next,
+.previous {
+    margin-bottom: 100px;
+  }
+
+  .search {
+    margin-bottom: 10px;
+  }
+
+  #search-filter {
+    width: 25%;
+    margin-left: 35%;
+  }
+}
 .hidden {
   display: none;
 }
