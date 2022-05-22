@@ -143,7 +143,7 @@ function handleFilter(e) {
   for (const card of cards) {
     card.classList.toggle(
       "hidden",
-      !names.innerText.toLowerCase().includes(currentValue)
+      !card.innerText.toLowerCase().includes(currentValue)
     );
   }
 }
