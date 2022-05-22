@@ -1,22 +1,34 @@
-//API VARIABLE DECLARATION
+/////////////////////////////////////////////////////////////////
+///////////////// API VARIABLE DECLARATION //////////////////////
+/////////////////////////////////////////////////////////////////
+
 let employees = [];
 let urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
 let flexContainer = document.querySelector(".flex-container");
 let cardID;
 
-// MODAL VARIABLE DECLARATION
+/////////////////////////////////////////////////////////////////
+////////////// MODAL VARIABLE DECLARATION ///////////////////////
+/////////////////////////////////////////////////////////////////
+
 let overlay = document.querySelector(".overlay");
 let modalContainer = document.querySelector(".modal-content");
 let modalClose = document.querySelector(".modal-close");
 
-// FETCH FUNCTION TO GRAB API DATA
+/////////////////////////////////////////////////////////////////
+///////////// FETCH FUNCTION TO GRAB API DATA ///////////////////
+/////////////////////////////////////////////////////////////////
+
 fetch(urlAPI)
   .then((res) => res.json())
   .then((res) => res.results)
   .then(displayEmployees)
   .catch((err) => console.log(err));
 
-// FUNCTION TO DISPLAY EMPLOYEES
+/////////////////////////////////////////////////////////////////
+////////////// FUNCTION TO DISPLAY EMPLOYEES ////////////////////
+/////////////////////////////////////////////////////////////////
+
 function displayEmployees(employeeData) {
   employees = employeeData;
   // EMPLOYEE HTML
@@ -51,7 +63,10 @@ function displayEmployees(employeeData) {
   }
 }
 
-// FUNCTION TO DISPLAY MODAL
+/////////////////////////////////////////////////////////////////
+//////////////// FUNCTION TO DISPLAY MODAL //////////////////////
+/////////////////////////////////////////////////////////////////
+
 function displayModal(index) {
   // OBJECT DESTRUCTURING
   let {
@@ -85,9 +100,12 @@ function displayModal(index) {
   cardID = index;
 }
 
-// EVENTLISTENER FOR THE CARD
+/////////////////////////////////////////////////////////////////
+///////////////// EVENTLISTENER FOR THE CARD ////////////////////
+/////////////////////////////////////////////////////////////////
+
 flexContainer.addEventListener("click", (e) => {
-  // MAKE SURE THE CLICK IS NOT ON THE flexContainer ITSELF
+  // MAKE SURE THE CLICK IS NOT ON THE FLEXCONTAINER ITSELF
   if (e.target !== flexContainer) {
     // SELECT THE CARD ELEMENT BASED ON THE PROXIMITY TO THE ACTUAL ELEMENT CLICKED
     const card = e.target.closest(".card");
@@ -95,28 +113,46 @@ flexContainer.addEventListener("click", (e) => {
     displayModal(parseInt(index));
   }
 });
+/////////////////////////////////////////////////////////////////
+///////////// EVENTLISTENER FOR THE MODAL CLOSE /////////////////
+/////////////////////////////////////////////////////////////////
 
-// EVENTLISTENER FOR THE MODAL CLOSE
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
 
-// FILTER THE RESULTS
+/////////////////////////////////////////////////////////////////
+///// EVENTLISTENER TO CLOSE MODAL WHEN OVERLAY IS CLICKED //////
+/////////////////////////////////////////////////////////////////
+
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.classList.add("hidden");
+  }
+});
+
+/////////////////////////////////////////////////////////////////
+//////////////////// FILTER THE RESULTS /////////////////////////
+/////////////////////////////////////////////////////////////////
+
 function handleFilter(e) {
   const currentValue = e.target.value.toLowerCase();
   const cards = document.querySelectorAll(".card");
+  const names = document.querySelectorAll(".name");
 
   for (const card of cards) {
     card.classList.toggle(
       "hidden",
-      !card.innerText.toLowerCase().includes(currentValue)
+      !names.innerText.toLowerCase().includes(currentValue)
     );
   }
 }
 const searchElement = document.querySelector(".search");
 searchElement.addEventListener("input", handleFilter);
 
-// PAGINATE THE OVERLAY
+/////////////////////////////////////////////////////////////////
+//////////////////// PAGINATE THE OVERLAY ///////////////////////
+/////////////////////////////////////////////////////////////////
 const modalbtns = overlay.querySelectorAll(".modal-btn");
 modalbtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
