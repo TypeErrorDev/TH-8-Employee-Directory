@@ -138,7 +138,7 @@ overlay.addEventListener("click", (e) => {
 function handleFilter(e) {
   const currentValue = e.target.value.toLowerCase();
   const cards = document.querySelectorAll(".card");
-  const names = document.querySelectorAll(".name");
+  // const names = document.querySelectorAll(".name");
 
   for (const card of cards) {
     card.classList.toggle(
