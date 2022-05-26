@@ -28,13 +28,12 @@ fetch(urlAPI)
 /////////////////////////////////////////////////////////////////
 ////////////// FUNCTION TO DISPLAY EMPLOYEES ////////////////////
 /////////////////////////////////////////////////////////////////
-
 function displayEmployees(employeeData) {
   employees = employeeData;
   // EMPLOYEE HTML
   let employeeHTML = "";
 
-  // LOOP THROUGH EMPLOYEE DATA AND CREATE HTML
+  // DECLARE THE EMPLOYEE DATA
   employees.forEach((employee, index) => {
     let name = employee.name;
     let email = employee.email;
@@ -42,7 +41,7 @@ function displayEmployees(employeeData) {
     let state = employee.location.state;
     let picture = employee.picture;
 
-    // CREATE HTML
+    // CREATE HTML FOR THE EMPLOYEES
     employeeHTML += `
         <div class="card" id="cardID" data-index="${index}">
             <img class="avatar" src="${picture.large}" alt="${name.first} ${name.last}"/>
@@ -54,8 +53,11 @@ function displayEmployees(employeeData) {
         </div>
         `;
   });
+  // ASSIGN THE HTML TO THE CONTAINER
   flexContainer.innerHTML = employeeHTML;
+  // GRAB THE CARDS
   let cards = document.querySelectorAll(".card");
+  // LOOP THROUGH AND ADD EVENT LISTENER TO EACH CARD AND CALL DISPLAY MODAL FUNCTION
   for (let i = 0; i < employees.length; i++) {
     cards[i].addEventListener("click", (e) => {
       displayModal(i);
@@ -81,7 +83,7 @@ function displayModal(index) {
   //   GRAB THE BIRTHDATE
   let date = new Date(dob.date);
 
-  //   CREATE THE MODAL HTML
+  //   CREATE THE MODAL HTML TO DISPLAY THE CARDS
   const modalHTML = `
   <img class="avatar" src="${picture.large}"/>
   <div class="text-container">
